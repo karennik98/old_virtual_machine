@@ -1,9 +1,7 @@
 #include "pch.h"
-#include "Interpretator.h"
 #include "Exception.h"
-#include "ALU.h"
-#include "Register.h"
-#include "Declaration.h"
+#include "Interpretator.h"
+#include "CPU.h"
 
 #include <unordered_map>
 
@@ -48,6 +46,20 @@ namespace virtual_machine {
 	void Interpretator::call_operation(const char* command, std::string label, Register reg1, Register reg2, int64_t val, Extantion ex) {
 		switch (hash_function(command))
 		{
+		case JZ:
+			m_dummy->JZ(label);
+		case JNZ:
+			m_dummy->JNZ(label);
+		case JO:
+			m_dummy->JO(label);
+		case JNO:
+			m_dummy->JNO(label);
+		case JS:
+			m_dummy->JS(label);
+		case JNS:
+			m_dummy->JNS(label);
+		case JUMP:
+			m_dummy->JUMP(label);
 		case ADD:
 			if (val == INT64_MAX) {
 				m_dummy->ADD(reg1, reg2, ex);
@@ -56,8 +68,24 @@ namespace virtual_machine {
 				m_dummy->ADD(reg1, val, ex);
 			}
 			break;
-		case JUMP:
-			m_dummy->JUMP(label);
+		case SUB:
+			if (val == INT64_MAX) {
+				m_dummy->SUB(reg1, reg2, ex);
+			}
+			else {
+				m_dummy->SUB(reg1, val, ex);
+			}
+			break;
+		case MUL:
+			if (val == INT64_MAX) {
+				m_dummy->MUL(reg1, reg2, ex);
+			}
+			else {
+				m_dummy->MUL(reg1, val, ex);
+			}
+			break;
+		case PRINT:
+			m_dummy->PRINT(reg1);
 		default:
 			break;
 		}

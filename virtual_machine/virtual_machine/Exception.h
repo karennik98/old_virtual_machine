@@ -6,15 +6,13 @@
 
 class Exception : public std::exception
 {
-	friend class wrong_func;
-	friend class wrong_file_path;
 public:
 	const char* what() const throw() = 0;
 	Exception(std::string file, std::string func, unsigned line) : m_file(file), m_func(func), m_line(line)
 	{
 	}
 	//virtual void info() = 0; //TO DO
-private:
+protected:
 	std::string m_file;
 	unsigned m_line;
 	std::string m_func;

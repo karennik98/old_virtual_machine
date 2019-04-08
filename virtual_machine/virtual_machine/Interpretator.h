@@ -1,8 +1,9 @@
 #pragma once
 
+#include "Declaration.h"
+#include "Register.h"
 #include "CPU.h"
 #include "ALU.h"
-#include "Declaration.h"
 
 #include <string>
 #include <fstream>
@@ -13,9 +14,8 @@ using namespace decl;
 
 namespace virtual_machine {
 
-	class Register;
-	class ALU;
 	class CPU;
+	class ALU;
 
 	class Interpretator : public CPU {
 	public:

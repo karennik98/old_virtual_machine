@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Interpretator.h"
 #include "Declaration.h"
+#include "Interpretator.h"
 #include "Register.h"
 
 #include <vector>
@@ -13,6 +13,7 @@ using namespace decl;
 namespace virtual_machine {
 
 	class Interpretator;
+	class ALU;
 
 	class CPU {
 	public:
@@ -33,3 +34,4 @@ namespace virtual_machine {
 		std::unique_ptr<Interpretator> m_parser;
 	};
 }
+

@@ -17,6 +17,8 @@ namespace virtual_machine {
 		void set_flag(bool flag) { m_isBusy = flag; }
 
 		Register& operator+(const Register& reg);
+		Register& operator-(const Register& reg);
+		Register& operator*(const Register& reg);
 		Register& operator = (const Register& reg);
 
 	private:

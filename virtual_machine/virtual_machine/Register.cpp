@@ -17,4 +17,12 @@ namespace virtual_machine {
 		m_value += reg.m_value;
 		return *this;
 	}
+	Register& Register::operator - (const Register& reg) {
+		m_value -= reg.m_value;
+		return *this;
+	}
+	Register& Register::operator * (const Register& reg) {
+		m_value *= reg.m_value;
+		return *this;
+	}
 }

@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "CPU.h"
 #include "Exception.h"
+#include "CPU.h"
 
 #include <iostream>
 
@@ -48,3 +48,4 @@ namespace virtual_machine {
 		return m_genRegs[idx];
 	}
 }
+
